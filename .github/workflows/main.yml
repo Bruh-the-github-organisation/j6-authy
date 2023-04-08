@@ -34,5 +34,5 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: '${{ secrets.NEXUS_URL }}/j6/authy:main-dev-${{ github.run_number }}'
-          cache-from: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache'
-          cache-to: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache,mode=max'
+          # cache-from: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache'
+          # cache-to: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache,mode=max'
