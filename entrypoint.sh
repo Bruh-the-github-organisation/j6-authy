@@ -28,9 +28,12 @@ function apply_path {
 }
 apply_path
 
-echo "Running prisma generate"
+echo "Running npm ci \n"
+npm ci
+
+echo "Running prisma generate \n"
 npx prisma migrate deploy
 npx prisma generate
 
-echo "Starting Nextjs"
+echo "Starting Nextjs \n"
 exec "$@"
