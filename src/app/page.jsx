@@ -9,8 +9,6 @@ export default async function Page() {
       <p>MySql Database: {process.env.MYSQL_DATABASE} </p>
       <p>CD Testing 3 (this better fucking work)</p>
 
-      {/* List through the users by name */}
-      <p>Users: {allUsers}</p>
 
     </main>
   )
