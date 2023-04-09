@@ -23,7 +23,7 @@ jobs:
             **/node_modules
           key: ${{ runner.name }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.name }}-node-
+            ${{ runner.name }}-node-${{ hashFiles('**/package-lock.json') }}
 
 
       - name: Set up Node and install dependencies
