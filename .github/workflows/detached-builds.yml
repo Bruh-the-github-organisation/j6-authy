@@ -29,6 +29,8 @@ jobs:
       - name: Set up Node and install dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         uses: actions/setup-node@v3
+        with:
+          node-version: '14'
       - run: npm ci
       - run: npm run build
 
