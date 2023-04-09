@@ -1,10 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 
 export default async function Page() {
-
-  const prisma = new PrismaClient()
-
-  const {allUsers} = await prisma.user.findMany();
 
   return (
     <main>
