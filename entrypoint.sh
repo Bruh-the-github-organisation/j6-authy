@@ -27,5 +27,9 @@ function apply_path {
   done < $envFilename
 }
 apply_path
+
+echo "Running prisma generate"
+npx prisma migrate deploy
+
 echo "Starting Nextjs"
 exec "$@"
