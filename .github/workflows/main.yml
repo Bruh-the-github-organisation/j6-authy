@@ -13,19 +13,6 @@ jobs:
         name: Checkout 
         uses: actions/checkout@v2
 
-      - 
-        name: Get cache
-        id: cache-node
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            **/node_modules
-          key: ${{ runner.name }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.name }}-node-${{ hashFiles('**/package-lock.json') }}
-
-
       - name: Set up Node and install dependencies
         uses: actions/setup-node@v3
         with:
@@ -33,7 +20,6 @@ jobs:
       - run: npm i next@latest react@latest react-dom@latest
       - run: npm install --omit=dev
       - run: npm run build
-
 
       -
         name: Set up Docker Buildx
