@@ -11,14 +11,15 @@ COPY  --chown=nextjs:nodejs /public ./public
 COPY  --chown=nextjs:nodejs /.next/standalone ./
 COPY  --chown=nextjs:nodejs /.next/static ./.next/static
 # COPY  --chown=nextjs:nodejs /.next ./.next
-# COPY /node_modules ./node_modules
+COPY --chown=nextjs:nodejs /node_modules ./node_modules
 COPY --chown=nextjs:nodejs /package.json ./package.json
 COPY --chown=nextjs:nodejs /package-lock.json ./package-lock.json
 COPY --chown=nextjs:nodejs /prisma/schema.prisma ./prisma/schema.prisma
 
 COPY entrypoint.sh .
 COPY .env.production .
-RUN npm ci
+
+# RUN npm ci
 # Execute script
 RUN apk add --no-cache --upgrade bash
 RUN ["chmod", "+x", "./entrypoint.sh"]
