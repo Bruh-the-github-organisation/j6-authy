@@ -30,6 +30,7 @@ apply_path
 
 echo "Running prisma generate"
 npx prisma migrate deploy
+npx prisma generate
 
 echo "Starting Nextjs"
 exec "$@"
