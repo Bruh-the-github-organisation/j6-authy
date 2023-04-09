@@ -28,8 +28,8 @@ jobs:
 
       - name: Set up Node and install dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v1
-      - run: npm install --omit=dev && npm run build
+        uses: actions/setup-node@v3
+      - run: npm ci && npm run build
 
 
       -
