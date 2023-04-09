@@ -12,11 +12,33 @@ jobs:
       -
         name: Checkout 
         uses: actions/checkout@v2
-      # -
-      #   name: Set up QEMU
-      #   uses: docker/setup-qemu-action@v2
+
+      - 
+        name: Get cache
+        id: cache-node
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+
+      - name: Set up Node and install dependencies
+        if: steps.cache-node.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.8.0'
+      - run: npm i next@latest react@latest react-dom@latest
+      - run: npm install --omit=dev
+      - run: npm run build
+
+
       -
         name: Set up Docker Buildx
+        id: buildx
         uses: docker/setup-buildx-action@v2
       - 
         name: Login to private registry
@@ -34,5 +56,3 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: '${{ secrets.NEXUS_URL }}/j6/authy:main-dev-${{ github.run_number }}'
-          # cache-from: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache'
-          # cache-to: 'type=registry,ref=${{ secrets.NEXUS_URL }}/j6/authy:buildcache,mode=max'
