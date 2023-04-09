@@ -3,7 +3,7 @@
 set +x
 # config
 envFilename='.env.production'
-nextFolder='./.next/'
+nextFolder='./'
 function apply_path {
   # read all config file  
   while read line; do
