@@ -31,6 +31,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+      - run: npm i next@latest react@latest react-dom@latest
       - run: npm ci
       - run: npm run build
 
