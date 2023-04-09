@@ -7,7 +7,8 @@ on:
     branches: [ master, main ]
 jobs:
   deploy:
-    runs-on: self-hosted
+    ## Runs on linux self-hosted runner
+    runs-on: [self-hosted, linux, x64]
     steps:
       -
         name: Checkout 
