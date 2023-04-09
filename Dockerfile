@@ -8,9 +8,13 @@ RUN adduser -S nextjs -u 1001
 # You only need to copy next.config.js if you are NOT using the default configuration
 COPY  /next.config.js ./
 COPY  /public ./public
-COPY  --chown=nextjs:nodejs /.next ./.next
-COPY /node_modules ./node_modules
+COPY  /.next/standalone ./
+COPY  /.next/static ./.next/static
+# COPY  --chown=nextjs:nodejs /.next ./.next
+# COPY /node_modules ./node_modules
 COPY /package.json ./package.json
+COPY /package-lock.json ./package-lock.json
+
 COPY entrypoint.sh .
 COPY .env.production .
 # Execute script
