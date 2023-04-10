@@ -96,7 +96,8 @@ export async function PUT(request) {
 
 export async function DELETE(request) {
     // Get the id query parameter
-    const { id } = request.query
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
 
     // If the id is not set, return a 400 error
     if (!id) {
