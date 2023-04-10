@@ -7,7 +7,7 @@ export default async function Page() {
       <p>MySql User: {process.env.MYSQL_USER} </p>
       <p>MySql Password: {process.env.MYSQL_PASSWORD} </p>
       <p>MySql Database: {process.env.MYSQL_DATABASE} </p>
-      <p>CD Testing 3 (this better fucking work)</p>
+      <p>CD Testing 4 (this better fucking work)</p>
 
 
     </main>
