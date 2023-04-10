@@ -70,5 +70,4 @@ jobs:
           image_name: ${{ github.repository }} # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # dockerfile: ./Dockerfile
-          image_tag: "'main-dev-${{ github.run_number }}', 'main-dev-latest'"
-
+          image_tag: main-dev-${{ github.run_number }}
