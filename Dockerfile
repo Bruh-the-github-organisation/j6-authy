@@ -19,7 +19,6 @@ COPY --chown=nextjs:nodejs /prisma/schema.prisma ./prisma/schema.prisma
 COPY entrypoint.sh .
 COPY .env.production .
 
-# RUN npm ci
 # Execute script
 RUN apk add --no-cache --upgrade bash
 RUN ["chmod", "+x", "./entrypoint.sh"]
