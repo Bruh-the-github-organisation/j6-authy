@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     ## Runs on linux self-hosted runner
-    runs-on: [self-hosted, linux, x64]
+    runs-on: "ubuntu-latest"
     steps:
       -
         name: Checkout 
@@ -69,8 +69,8 @@ jobs:
           push: true
           builder: ${{ steps.buildx.outputs.name}}
           tags: ghcr.io/${{ env.REPO_LC }}:main-dev-${{ github.run_number }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       -
         name: Move cache
         run: |
