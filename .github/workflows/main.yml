@@ -44,10 +44,11 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: set lower case owner name
+      - 
+        name: set lower case owner name
         run: |
           echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
         env:
