@@ -43,9 +43,9 @@ jobs:
         name: Login to private registry
         uses: docker/login-action@v1
         with:
-          registry: ${{ secrets.NEXUS_URL }}
-          username: ${{ secrets.NEXUS_USER }}
-          password: ${{ secrets.NEXUS_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
@@ -54,4 +54,4 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: '${{ secrets.NEXUS_URL }}/j6/authy:main-dev-${{ github.run_number }}'
+          tags: 'ghcr.io/${{ github.actor }}/authy:main-dev-${{ github.run_number }}'
