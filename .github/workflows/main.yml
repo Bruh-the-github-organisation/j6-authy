@@ -47,11 +47,11 @@ jobs:
       #     username: ${{ github.actor }}
       #     password: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: set lower case owner name
-      #   run: |
-      #     echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
-      #   env:
-      #     REPO: '${{ github.repository }}'
+      - name: set lower case owner name
+        run: |
+          echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
+        env:
+          REPO: '${{ github.repository }}'
 
       # -
       #   name: Build and push
@@ -87,4 +87,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:main-dev-${{ github.run_number }}
+          tags: ghcr.io/${{ env.REPO_LC }}:main-dev-${{ github.run_number }}
