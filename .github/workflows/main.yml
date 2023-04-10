@@ -40,7 +40,6 @@ jobs:
         env:
           REPO: '${{ github.repository }}'
 
-
       # - name: Build and publish a Docker image for ${{ github.repository }} # Commented out because it's not working but will leave it here for reference
       #   uses: macbre/push-to-ghcr@v12
       #   with:
