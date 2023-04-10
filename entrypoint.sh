@@ -29,7 +29,7 @@ function apply_path {
 apply_path
 
 echo "Running prisma generate \n"
-npx prisma migrate deploy --name entrypoint
+npx prisma migrate deploy --schema=./prisma/schema.prisma
 npx prisma generate
 
 echo "Starting Nextjs \n"
