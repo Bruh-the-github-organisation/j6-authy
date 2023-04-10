@@ -14,7 +14,7 @@ COPY  --chown=nextjs:nodejs /.next/static ./.next/static
 COPY --chown=nextjs:nodejs /node_modules ./node_modules
 COPY --chown=nextjs:nodejs /package.json ./package.json
 COPY --chown=nextjs:nodejs /package-lock.json ./package-lock.json
-COPY --chown=nextjs:nodejs /prisma/schema.prisma ./prisma/schema.prisma
+COPY --chown=nextjs:nodejs /prisma ./prisma
 
 COPY entrypoint.sh .
 COPY .env.production .
