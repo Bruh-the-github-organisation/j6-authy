@@ -61,4 +61,4 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: 'ghcr.io/${{ env.OWNER_LC }}/j6-authy:main-dev-${{ github.run_number }}'
+          tags: 'ghcr.io/${{ github.repository }}/j6-authy:main-dev-${{ github.run_number }}'
