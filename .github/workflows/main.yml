@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.8.0'
-      - run: npm ci
+      - run: npm shrinkwrap
       - run: npm run build
 
       - name: set lower case owner name
