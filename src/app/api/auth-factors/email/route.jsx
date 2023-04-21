@@ -1,4 +1,6 @@
-import {redis} from '@/utils/redis';
+import {createRedisClient} from '@/utils/redis';
+
+const redis = createRedisClient();
 
 export async function POST(request){
     const body = await request.json()

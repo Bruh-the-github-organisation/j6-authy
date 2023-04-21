@@ -31,7 +31,3 @@ export function createRedisClient() {
         console.error(`[Redis] Error: ${err.message}`);
     }
 }
-
-const redis = createRedisClient();
-
-export { redis };
