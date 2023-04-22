@@ -26,3 +26,8 @@ model AuthAttempt {
   createdAt DateTime @default(now())
   code      String
 }
+
+model Config {
+  name      String   @id
+  value     String
+}

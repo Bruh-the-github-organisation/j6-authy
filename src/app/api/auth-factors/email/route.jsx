@@ -1,4 +1,4 @@
-import {redis} from '@/utils/redis';
+import { getConfig, setConfig } from "@/utils/config";
 
 
 
@@ -7,14 +7,14 @@ export async function POST(request){
     const {username, password, sender} = body;
     
     // Save the email settings
-    await redis.set('email:username', username);
-    await redis.set('email:password', password);
-    await redis.set('email:sender', sender);
+    await setConfig('email:username', username);
+    await setConfig('email:password', password);
+    await setConfig('email:sender', sender);
 }
 
 export async function GET(request){
-    const username = await redis.get('email:username');
-    const sender = await redis.get('email:sender');
+    const username = await getConfig('email:username');
+    const sender = await getConfig('email:sender');
     return {
         body: JSON.stringify({username, sender}),
         headers: {
