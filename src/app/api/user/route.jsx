@@ -1,6 +1,5 @@
 // Import prisma client
-import { prisma } from '@/utils/prisma'
-// export const dynamic = 'force-dynamic'
+import { prisma } from '@/app/utils/prisma'
 
 // This is the user management route
 // It is used to create, update, delete and get users
