@@ -10,9 +10,16 @@ export async function POST(request){
     await setConfig('email:username', username);
     await setConfig('email:password', password);
     await setConfig('email:sender', sender);
+
+    return {
+        body: JSON.stringify({username, sender}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
 }
 
-export async function GET(request){
+export async function GET(){
     const username = await getConfig('email:username');
     const sender = await getConfig('email:sender');
     return {
