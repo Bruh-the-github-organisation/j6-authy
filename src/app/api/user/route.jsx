@@ -1,5 +1,5 @@
 // Import prisma client
-import { prisma } from '@/app/utils/prisma'
+import { prisma } from '@/utils/prisma'
 
 // This is the user management route
 // It is used to create, update, delete and get users
